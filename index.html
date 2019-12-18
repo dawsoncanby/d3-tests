@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>d3</title>
+  </head>
+  <body>
+    <div id="svg-container">
+      <svg id="d3-svg"></svg>
+    </div>
+    <style media="screen">
+      body, html, div, svg {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+      }
+    </style>
+
+    <link rel="stylesheet" href="/css/styles.css">
+
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="js/bars.js"></script>
+    <script>
+      let data = new Array(5).fill().map(e => { return Math.random(); });
+      let bars = new Bars('d3-svg', 'bars');
+      bars.loadData(data, ['a', 'b', 'c', 'd', 'e']);
+      bars.render(document.getElementById('d3-svg').width.baseVal.value, document.getElementById('d3-svg').height.baseVal.value);
+
+      window.onresize = () => {
+        bars.render(document.getElementById('d3-svg').width.baseVal.value, document.getElementById('d3-svg').height.baseVal.value);
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+.bars text {
+  fill: white;
+}
+
+.bars line, path{
+  stroke: white;
+}
